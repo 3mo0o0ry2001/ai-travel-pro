@@ -29,7 +29,8 @@ Want to run this project locally? Follow these steps:
 **1. Clone the repository:**
 ```bash
 git clone [https://github.com/YOUR_USERNAME/ai-travel-pro.git](https://github.com/YOUR_USERNAME/ai-travel-pro.git)
-cd ai-travel-pro
+cd ai-travel-pro```
 
 **2. Install dependencies:**
-pip install -r requirements.txt
+```bash
+pip install -r requirements.txt```
