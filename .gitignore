@@ -205,3 +205,11 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# --- Custom Project Files ---
+
+# Ignore database files to protect user data
+*.db
+
+# Ignore Streamlit secrets, but allow config.toml (Theme) to be uploaded
+.streamlit/secrets.toml

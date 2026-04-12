@@ -1,72 +1,39 @@
 import os
 import json
-from dotenv import load_dotenv
 from openai import OpenAI
-from tools import search_flights_live, check_calendar, book_flight, tools_schema
-load_dotenv()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+from tools import search_flights_live, check_calendar, add_to_watchlist, get_weather, tools_schema
 
-# Map tool names to actual functions for execution
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 available_actions = {
-    "search_flights_live": search_flights_live, # New name
-    "check_calendar": check_calendar,
-    "book_flight": book_flight,
+    "search_flights_live": search_flights_live, "check_calendar": check_calendar,
+    "add_to_watchlist": add_to_watchlist, "get_weather": get_weather
 }
 
 def run_agent(user_query):
-    # System Prompt defines identity and operational rules
     messages = [
         {"role": "system", "content": """
         You are a proactive Travel Assistant.
-        Operational Protocol:
-        1. Always search for flights first.
-        2. ALWAYS check the user's calendar for the flight date before booking.
-        3. If a conflict exists, do not book; instead, report the conflict.
-        4. If free, book the cheapest available flight.
-        Current Date: 2026-01-20.
+        1. Convert city names to IATA codes (e.g. Dubai -> DXB).
+        2. Check 'Stop Preference' in Context: If 0, set stops=0 in search.
+        3. ALWAYS check the weather for the destination before finalizing the response.
+        4. If the flight price is higher than the user's budget, suggest 'add_to_watchlist'.
+        5. DO NOT check or mention the user's calendar or schedule.
+        6. Always respond in English.
+        Current Date: 2026-04-12.
         """},
         {"role": "user", "content": user_query}
     ]
-
-    print("🤖 Thinking...")
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=messages,
-        tools=tools_schema,
-        tool_choice="auto"
-    )
-
-    response_message = response.choices[0].message
-    tool_calls = response_message.tool_calls
-
-    if tool_calls:
-        messages.append(response_message)
-        
-        for tool_call in tool_calls:
-            func_name = tool_call.function.name
-            func_args = json.loads(tool_call.function.arguments)
-            
-            # Execute tool and get JSON result
-            action_result = available_actions[func_name](**func_args)
-            
-            messages.append({
-                "tool_call_id": tool_call.id,
-                "role": "tool",
-                "name": func_name,
-                "content": action_result,
-            })
-        
-        # Second call to provide the final reasoned response
-        print("🤖 Analyzing results...")
-        final_response = client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=messages,
-        )
-        return final_response.choices[0].message.content
     
-    return response_message.content
-
-if __name__ == "__main__":
-    query = "Find a flight from DXB to CAI on 2026-01-27 and book the cheapest one."
-    print(f"Request: {query}\n" + "-"*50)
-    print(f"Final Agent Output:\n{run_agent(query)}")
+    response = client.chat.completions.create(model="gpt-4o-mini", messages=messages, tools=tools_schema)
+    msg = response.choices[0].message
+    
+    if msg.tool_calls:
+        messages.append(msg)
+        for tool in msg.tool_calls:
+            args = json.loads(tool.function.arguments)
+            result = available_actions[tool.function.name](**args)
+            messages.append({"tool_call_id": tool.id, "role": "tool", "name": tool.function.name, "content": result})
+        
+        final = client.chat.completions.create(model="gpt-4o-mini", messages=messages)
+        return final.choices[0].message.content
+    return msg.content
