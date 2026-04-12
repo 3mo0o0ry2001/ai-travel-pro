@@ -30,3 +30,6 @@ Want to run this project locally? Follow these steps:
 ```bash
 git clone [https://github.com/YOUR_USERNAME/ai-travel-pro.git](https://github.com/YOUR_USERNAME/ai-travel-pro.git)
 cd ai-travel-pro
+
+**2. Install dependencies:**
+pip install -r requirements.txt
