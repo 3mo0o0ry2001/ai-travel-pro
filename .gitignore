@@ -213,3 +213,15 @@ __marimo__/
 
 # Ignore Streamlit secrets, but allow config.toml (Theme) to be uploaded
 .streamlit/secrets.toml
+
+# Runtime state and local credentials
+data/
+backups/
+.env.*
+!.env.example
+!.env.production.example
+*.db-*
+coverage.json
+.claude/efficiency/logs/
+.claude/efficiency/bench/results.jsonl
+.claude/settings.local.json

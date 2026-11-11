@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-17",
+  "release_status": "locally_verified_not_publicly_deployed",
+  "tests": {
+    "passed": 50,
+    "coverage_percent": 89.21,
+    "python": "3.13.1"
+  },
+  "runtime_dependency_audit": {
+    "known_vulnerabilities": 0,
+    "tool": "pip-audit",
+    "version": "2.10.1",
+    "scope": "requirements.lock; excludes container OS"
+  },
+  "public_http_smoke": {
+    "requests": 200,
+    "concurrency": 10,
+    "failures": 0,
+    "p50_ms": 68.13,
+    "p95_ms": 127.87,
+    "elapsed_seconds": 1.55,
+    "scope": "home and session; excludes flight search and email"
+  },
+  "not_verified": [
+    "public hosting and HTTPS",
+    "live flight provider",
+    "live OpenAI",
+    "SMTP inbox delivery",
+    "container runtime",
+    "phone viewport",
+    "realistic production workload"
+  ],
+  "account_flow_fix": {
+    "date": "2026-10-17",
+    "full_suite_passed": 56,
+    "account_tests_passed": 15,
+    "browser_checks": [
+      "Arabic password length feedback",
+      "password confirmation mismatch",
+      "registration switches to login",
+      "localized incorrect credentials",
+      "successful sign-in and sign-out"
+    ],
+    "screenshot": "images/auth-registration-fixed.png"
+  }
+}
