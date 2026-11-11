@@ -1,21 +1,27 @@
 {
-  "_note": "USD per 1M tokens, keyed by a substring of the model id (longest match wins). null means unknown and the model reports as unpriced; a zero is also treated as unknown. Estimates only; never the subscription bill. Installer fills from the official pricing page.",
+  "_note": "USD per 1M tokens, keyed by a substring of the model id (longest match wins). null means unknown and the model reports as unpriced; a zero is also treated as unknown. Estimates only; never the subscription bill. Installer fills from the official pricing page. Filled 2026-11-11 from platform.claude.com/docs/en/about-claude/pricing: latest 5.x rates, 5-minute cache writes, Haiku at the up-to-100k-prompt rate.",
   "haiku": {
-    "input": null,
-    "output": null,
-    "cache_read": null,
-    "cache_write": null
+    "input": 0.1,
+    "output": 0.5,
+    "cache_read": 0.01,
+    "cache_write": 0.125
   },
   "sonnet": {
-    "input": null,
-    "output": null,
-    "cache_read": null,
-    "cache_write": null
+    "input": 2,
+    "output": 10,
+    "cache_read": 0.1,
+    "cache_write": 2.5
   },
   "opus": {
-    "input": null,
-    "output": null,
-    "cache_read": null,
-    "cache_write": null
+    "input": 4,
+    "output": 20,
+    "cache_read": 0.2,
+    "cache_write": 5
+  },
+  "fable": {
+    "input": 8,
+    "output": 40,
+    "cache_read": 0.2,
+    "cache_write": 10
   }
 }

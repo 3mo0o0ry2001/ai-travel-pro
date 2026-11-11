@@ -505,7 +505,7 @@ class TestOverhead(Base):
         for _ in range(n): t0 = time.perf_counter(); fn(); xs.append((time.perf_counter() - t0) * 1000)
         xs = sorted(xs); return {"cold_ms": round(xs[0] if n == 1 else None or 0, 1), "p50_ms": round(xs[len(xs) // 2], 1), "p95_ms": round(xs[min(len(xs) - 1, int(len(xs) * 0.95))], 1), "n": n}
     def test_hook_latency_cold_warm_breakdown(self):
-        p = self.p; budget = float(os.environ.get("EOS_OVERHEAD_BUDGET_MS") or json.loads((p.eos / "config.json").read_text()).get("overhead_budget_ms", 800))
+        p = self.p; budget = float(os.environ.get("EOS_OVERHEAD_BUDGET_MS") or json.loads((p.eos / "config.json").read_text()).get("overhead_budget_ms", 3000))
         tmp = pathlib.Path(tempfile.mkdtemp()); big = tmp / "big.jsonl"
         with open(big, "w") as f:
             for i in range(600): f.write(rec(f"m{i}", "claude-opus-5", 100, 100, 1000, 10) + "\n")

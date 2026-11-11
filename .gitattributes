@@ -1,0 +1,5 @@
+
+# Efficiency OS: keep LF so manifest hashes match on Windows
+.claude/** text eol=lf
+CLAUDE.md text eol=lf
+scripts/README.md text eol=lf

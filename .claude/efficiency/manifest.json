@@ -1,6 +1,6 @@
 {
  "version": "2.1.2",
- "installed": "2026-11-11T10:10:04+00:00",
+ "installed": "2026-11-11T10:30:03+00:00",
  "py": "python",
  "files": {
   ".claude/agents/architect.md": "e516e312158b8ece80f7cf6da59e3c1142af033c45fcbb9046911924ab7df624",
@@ -29,8 +29,8 @@
   ".claude/efficiency/bin/verify.py": "b7722bebf3343fbd89ef17395c3ad978a2befa55e678531b97194ac03d9853df",
   ".claude/efficiency/config.json": "822cea41fae39469cb7f843580327e2c14436f3427fc0dfc7223291e6ddafec9",
   ".claude/efficiency/gates.json": "a6f21507457131cfdbd72027c584ece7d2adf2569297e17a3ffd2aa424e62135",
-  ".claude/efficiency/pricing.json": "7ae70371d05ba2a975fb9b9b0655e3ff6fa47434f2ad4d9de8f57030c6f0fe9d",
-  ".claude/efficiency/tests/test_all.py": "d01ad50df107b9a6b41f3629605a2cca807f91728370dc70c734c4cd0095a529",
+  ".claude/efficiency/pricing.json": "cada7d9055b32b2c8e1297846518cd46c63ed2420b7b089dac0a3e81e2be2d7b",
+  ".claude/efficiency/tests/test_all.py": "312b2398e4acf4477c9668b437eb04e00cd84b597a9c5d20a6af0871e167a0c9",
   ".claude/settings.json": "0fa4c13b161a6d84b402405a656840d2d815cc31e3de62a564b01dc1455e61c6",
   ".claude/skills/benchmark/SKILL.md": "6e5f95e53bba2c1d475bd52d8c9ccfd5e62e924c9ebdd1f0904adea2307cdb33",
   ".claude/skills/calibrate/SKILL.md": "e9e69cd6e7ee610671c198e727d62bcd787b86ddacc91fd8234ebfbd4f220f17",
@@ -43,7 +43,7 @@
   ".claude/skills/lean-check/SKILL.md": "25d954f877aca60ec329109f4f6b91c9f92d3f78223780bf7c2d106b645edd20",
   ".claude/skills/route/SKILL.md": "cd37a75fc9562c35b0fb1fecae768e1303c42c5944bfd99f93004d1d2ad7977a",
   ".gitignore": "d28fc5668c381b07e1edb3f28ffdfef8facc8024783a2f897fdfbec6c447a2c3",
-  "CLAUDE.md": "6a47225af8279e6f1576b8f76e631c75efbd078ffed4674ab86a7c69e83f36de",
+  "CLAUDE.md": "4453971a67ca33f582f19a9ac8ea0190757f1204499771a344d62200134e051e",
   "scripts/README.md": "0a4ed3c338bd64e2ae7b63d677e6d73b9967ba810197258763c7fc0443083bdb"
  }
 }
