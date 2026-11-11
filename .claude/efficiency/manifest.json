@@ -1,6 +1,6 @@
 {
  "version": "2.1.2",
- "installed": "2026-11-11T10:30:03+00:00",
+ "installed": "2026-11-11T10:36:01+00:00",
  "py": "python",
  "files": {
   ".claude/agents/architect.md": "e516e312158b8ece80f7cf6da59e3c1142af033c45fcbb9046911924ab7df624",
@@ -31,7 +31,7 @@
   ".claude/efficiency/gates.json": "a6f21507457131cfdbd72027c584ece7d2adf2569297e17a3ffd2aa424e62135",
   ".claude/efficiency/pricing.json": "cada7d9055b32b2c8e1297846518cd46c63ed2420b7b089dac0a3e81e2be2d7b",
   ".claude/efficiency/tests/test_all.py": "312b2398e4acf4477c9668b437eb04e00cd84b597a9c5d20a6af0871e167a0c9",
-  ".claude/settings.json": "0fa4c13b161a6d84b402405a656840d2d815cc31e3de62a564b01dc1455e61c6",
+  ".claude/settings.json": "f39e471907f257eafd47664b1b299108361ee6f1815e4bea55ae99ae116c42b3",
   ".claude/skills/benchmark/SKILL.md": "6e5f95e53bba2c1d475bd52d8c9ccfd5e62e924c9ebdd1f0904adea2307cdb33",
   ".claude/skills/calibrate/SKILL.md": "e9e69cd6e7ee610671c198e727d62bcd787b86ddacc91fd8234ebfbd4f220f17",
   ".claude/skills/codify/SKILL.md": "d78cf3bf40afa8db35a83a58ead45f933b62bd242f2344684d220c6ab1b8f50c",

@@ -146,10 +146,7 @@
       "Read(**/credentials*)",
       "Edit(./.env)",
       "Edit(./.env.*)",
-      "Write(./.env)",
-      "Write(./.env.*)",
-      "Edit(./.claude/settings.json)",
-      "Write(./.claude/settings.json)"
+      "Edit(./.claude/settings.json)"
     ]
   }
 }

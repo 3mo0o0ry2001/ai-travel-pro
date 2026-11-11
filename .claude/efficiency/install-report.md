@@ -1,5 +1,5 @@
 # Efficiency OS install report
-date: 2026-11-11T10:30:00+00:00  python: python (3.13)  os: nt/win32  hook style: absolute
+date: 2026-11-11T10:35:59+00:00  python: python (3.13)  os: nt/win32  hook style: absolute
 
 | file | action |
 |---|---|
@@ -30,7 +30,7 @@ date: 2026-11-11T10:30:00+00:00  python: python (3.13)  os: nt/win32  hook style
 | .claude/efficiency/config.json | skip (identical) |
 | .claude/efficiency/gates.json | skip (identical) |
 | .claude/efficiency/pricing.json | skip (modified locally since install; keeping yours) |
-| .claude/efficiency/tests/test_all.py | update (runtime, by manifest) |
+| .claude/efficiency/tests/test_all.py | skip (identical) |
 | .claude/settings.json | merge |
 | .claude/skills/benchmark/SKILL.md | skip (identical) |
 | .claude/skills/calibrate/SKILL.md | skip (identical) |
@@ -45,21 +45,6 @@ date: 2026-11-11T10:30:00+00:00  python: python (3.13)  os: nt/win32  hook style
 | .gitignore | merge |
 | CLAUDE.md | merge |
 | scripts/README.md | skip (identical) |
-
-### .claude/efficiency/tests/test_all.py (update (runtime, by manifest))
-```diff
---- current
-+++ proposed
-@@ -505,7 +505,7 @@
-         for _ in range(n): t0 = time.perf_counter(); fn(); xs.append((time.perf_counter() - t0) * 1000)
-         xs = sorted(xs); return {"cold_ms": round(xs[0] if n == 1 else None or 0, 1), "p50_ms": round(xs[len(xs) // 2], 1), "p95_ms": round(xs[min(len(xs) - 1, int(len(xs) * 0.95))], 1), "n": n}
-     def test_hook_latency_cold_warm_breakdown(self):
--        p = self.p; budget = float(os.environ.get("EOS_OVERHEAD_BUDGET_MS") or json.loads((p.eos / "config.json").read_text()).get("overhead_budget_ms", 800))
-+        p = self.p; budget = float(os.environ.get("EOS_OVERHEAD_BUDGET_MS") or json.loads((p.eos / "config.json").read_text()).get("overhead_budget_ms", 3000))
-         tmp = pathlib.Path(tempfile.mkdtemp()); big = tmp / "big.jsonl"
-         with open(big, "w") as f:
-             for i in range(600): f.write(rec(f"m{i}", "claude-opus-5", 100, 100, 1000, 10) + "\n")
-```
 
 ### .claude/settings.json (merge)
 ```diff
